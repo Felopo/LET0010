@@ -1,0 +1,15 @@
+---
+title: "Introducción"
+author: "Felipe Ignacio Moya González"
+date: "08-11-2020"
+output:
+  prettydoc::html_pretty:
+    theme: hpstr
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Primero 
