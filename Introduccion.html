@@ -14,7 +14,7 @@
 <meta name="author" content="Felipe Ignacio Moya González" />
 
 
-<title>Tarea 1 Simulación Estocástica</title>
+<title>Introducción</title>
 
 <script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
 // v0.0.1
@@ -34,99 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
-/* A workaround for https://github.com/jgm/pandoc/issues/4278 */
-a.sourceLine {
-  pointer-events: auto;
-}
-
-</style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
-</script>
 
 
 
@@ -152,34 +59,50 @@ a.sourceLine {
 <article class="hentry">
 <header class="header-title">
 <div class="header-title-wrap">
-<h1 class="title toc-ignore entry-title">Tarea 1 Simulación Estocástica</h1>
+<h1 class="title toc-ignore entry-title">Introducción</h1>
 <h3 class="author">Felipe Ignacio Moya González</h3>
-<h3 class="date">01-09-2020</h3>
+<h3 class="date">09-11-2020</h3>
 </div><!-- /.header-title-wrap -->
 </header>
 
 
 <div class="entry-content">
 
-<div id="r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">summary</span>(cars)</span></code></pre></div>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
-</div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
-<p>You can also embed plots, for example:</p>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
-</div>
+<h2>
+<ol style="list-style-type: decimal">
+<li>Contexto
+</h2></li>
+</ol>
+<p>
+Actualmente la premier league de inglaterra es la liga de fútbol más competitiva del mundo <em>BUSCAR FUENTE</em>, pues desde hace varios años que los equipos que salen campeones varian cada temporada. Y siempre hay algún equipo que da la sorpresa. El Manchester City, equipo que juega en la premier league actualmente, ha destacado los últimos años, ganando varios títulos y mostrando una gran mejoría con respecto a años anteriores, donde no solía destacar. A lo largo de este informe, se analizará el desempeño del equipo Manchester City entre las temporadas 2014 y 2019, para luego ver si hay algo que el equipo deba hacer mejor a futuro para aspirar a salir campeón.
+</p>
+<hr>
+<h2>
+<ol start="2" style="list-style-type: decimal">
+<li>Problema / relevancia / necesidad
+</h2></li>
+</ol>
+<p>
+En este análisis se tratará de encontrar las debilidades del equipo para poder cubrirlas y luego poder mejorarlas a futuro. Esas debilidades pueden influir mucho al desempeño del equipo, por lo que entenderlas y mejorarlas es muy importante para que el Manchester City pueda llegar a ser campeón a futuro.
+</p>
+<hr>
+<h2>
+<ol start="3" style="list-style-type: decimal">
+<li>Foco
+</h2></li>
+</ol>
+<p>
+Es por esto que en este informe se revisarán los factores que más influyeron en el desempeño del equipo, y se enfocará en determinar a grandes rasgos las falencias que el equipo ha tenido en estos últimos años, para poder mejorarlas.
+</p>
+<hr>
+<h2>
+<ol start="4" style="list-style-type: decimal">
+<li>Carta de navegación
+</h2></li>
+</ol>
+<p>
+El informe se desarrollará en cuatro secciones: primero se hará una pequeña introducción para que el lector entre en contexto con el tema y con alguna información que no se analizó pues no se encuentra en la base de datos, después se analizarán los goles marcados y recibidos por el equipo en cada temporada a través de gráficos, luego se hará una comparación de los resultados obtenidos por el equipo contra los <strong>big six</strong> (incluir un link que lleve a una explicación de que son los big six) en cada temporada, y ver si esto influyó en que el equipo haya salido campeón, por último se sacarán conclusiones de estos resultados, para ver cuales son las debilidades que debe cubrir el equipo. Cabe recalcar que en este análisis no se usa toda la información que influye en los resultados de cada partido pues esta información va más allá de lo que se puede analizar en esta base de datos. Por lo que si se quisiera obtener conclusiones más precisas se podría hacer un análisis que abarque más años y que además use otras variables que no están en esta base de datos, como por ejemplo los jugadores que tiene el equipo, las lesiones, etc.
+</p>
 </div><!-- /.entry-content -->
 </article>
 </div><!-- /#main -->
