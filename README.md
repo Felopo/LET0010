@@ -11,7 +11,7 @@ __datos-procesados__
 El archivo con los datos, pero sin las variables que explican sobre datos de apuestas, pues en el análisis no usaremos estos.
 
 __figuras__  
-Los gráficos para el informe y la presentación.
+Los gráficos para el informe y la presentación. Los gráficos se ven un poco grandes al verlos desde github, por lo que recomiendo descargarlos para verlos mejor.
 
 __productos__  
 En esta carpeta se encuentra el archivo Rmd de la introducción y el archivo html de esta misma.
