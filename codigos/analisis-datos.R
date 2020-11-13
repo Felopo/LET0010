@@ -1,25 +1,20 @@
 library(rio)
-library(ggplot2)
 library(lubridate)
 library(readr)
+library(ggplot2)
+library(ggthemes)
 
-pl_19_20 = rio::import("datos-sin-procesar/pl 2019-2020.csv")
-pl_19_20 = pl_19_20[1:24]
+pl_19_20 = rio::import("datos-procesados/pl_19-20.csv")
 
-pl_18_19 = rio::import("datos-sin-procesar/pl 2018-2019.csv")
-pl_18_19 = pl_18_19[1:23]
+pl_18_19 = rio::import("datos-procesados/pl_18-19.csv")
 
-pl_17_18 = rio::import("datos-sin-procesar/pl 2017-2018.csv")
-pl_17_18 = pl_17_18[1:23]
+pl_17_18 = rio::import("datos-procesados/pl_17-18.csv")
 
-pl_16_17 = rio::import("datos-sin-procesar/pl 2016-2017.csv")
-pl_16_17 = pl_16_17[1:23]
+pl_16_17 = rio::import("datos-procesados/pl_16-17.csv")
 
-pl_15_16 = rio::import("datos-sin-procesar/pl 2015-2016.csv")
-pl_15_16 = pl_15_16[1:23]
+pl_15_16 = rio::import("datos-procesados/pl_15-16.csv")
 
-pl_14_15 = rio::import("datos-sin-procesar/pl 2014-2015.csv")
-pl_14_15 = pl_14_15[1:23]
+pl_14_15 = rio::import("datos-procesados/pl_14-15.csv")
 
 # 19-20
 # Partidos jugados por el city 19-20
@@ -346,12 +341,43 @@ if (pjv_14_15[which(pjv_14_15$HomeTeam == "Tottenham"),]$FTR == "A") {
   victorias_14_15 = victorias_14_15 + 1
 }
 
-# Escrbimos los datos de cada temporada, sin los datos sobre apuestas
-write_csv(pl_14_15, here::here("datos-procesados", "pl_14_15.csv"))
-write_csv(pl_15_16, here::here("datos-procesados", "pl_15_16.csv"))
-write_csv(pl_16_17, here::here("datos-procesados", "pl_16_17.csv"))
-write_csv(pl_18_19, here::here("datos-procesados", "pl_18_19.csv"))
-write_csv(pl_19_20, here::here("datos-procesados", "pl_19_20.csv"))
+
+# Promedio de goles por temporada
+datos_prom_goles = data.frame(temporadas = c("14-15", "15-16", "16-17", "17-18", "18-19", "19-20"), 
+                    promedios = c(p_14_15 = prom_goles_city_14_15, p_15_16 = prom_goles_city_15_16, 
+                                  p_16_17 = prom_goles_city_16_17, p_17_18 = prom_goles_city_17_18, 
+                                  p_18_19 = prom_goles_city_18_19, p_19_20 = prom_goles_city_19_20))
+
+#Gráfico de promedio de goles por temporada
+ggplot2::ggplot(data = datos_prom_goles, mapping = aes(x = temporadas, y = promedios)) +
+  labs(x = "Temporada", y = "Promedio de goles",
+       title = "Promedio de goles del Manchester City por temporada") +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "right") + 
+  scale_color_colorblind() + 
+  geom_point(size = 5, mapping = aes(color = temporadas))
+
+ggsave(here::here("figuras", "promedio-goles-city.png"))
+
+# Promedio de goles recibidos por temporada
+datos_prom_rec = data.frame(temporadas = c("14-15", "15-16", "16-17", "17-18", "18-19", "19-20"), 
+                    promedios = c(p_14_15 = prom_rec_city_14_15, p_15_16 = prom_rec_city_15_16, 
+                                  p_16_17 = prom_rec_city_16_17, p_17_18 = prom_rec_city_17_18, 
+                                  p_18_19 = prom_rec_city_18_19, p_19_20 = prom_rec_city_19_20))
+
+#Gráfico de promedio de goles recibidos  por temporada
+ggplot2::ggplot(data = datos_prom_rec, mapping = aes(x = temporadas, y = promedios)) +
+  labs(x = "Temporada", y = "Promedio de goles recibidos",
+       title = "Promedio de goles recibidos del Manchester City por temporada") +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "right") + 
+  scale_color_colorblind() + 
+  geom_point(size = 5, mapping = aes(color = temporadas))
+  
+ggsave(here::here("figuras", "promedio-recibidos-city.png"))
+
+
+
 
 
 
