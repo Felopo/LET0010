@@ -449,14 +449,28 @@ datos_faltas = data.frame(temporadas,
                                           prom_faltas_17_18, prom_faltas_18_19, prom_faltas_19_20))
 grafico_prom_faltas = 
   ggplot2::ggplot(data = datos_faltas) + 
-            geom_bar(aes(x = temporadas, y  = prom_faltas), stat = "identity", fill = temporadas) + 
+            geom_bar(aes(x = temporadas, y  = prom_faltas), stat = "identity", fill = temporadas) +
             labs(x = "Temporada", y = "Promedio de faltas por partido",
                  title = "Promedio de faltas cada temporada") +
             theme_bw() +
             theme(plot.title = element_text(hjust = 0.5), legend.position = "right")
-# datos_tarjetas = data.frame(temporadas, )
+datos_tarjetas = data.frame(temporadas, 
+                            amarillas = c(am_14_15, am_15_16, am_16_17, am_17_18, am_18_19, 
+                                          am_19_20),
+                            rojas = c(roj_14_15, roj_15_16, roj_16_17, roj_17_18, roj_18_19, 
+                                      roj_19_20))
+grafico_tarjetas = 
+  ggplot2::ggplot(data = datos_tarjetas) +
+            geom_bar(stat = "identity", fill = temporadas, aes(x = temporadas, y = amarillas)) + 
+            geom_text(aes(x = temporadas, y = amarillas, label=amarillas), 
+                      position=position_dodge(width=0.9), vjust=-0.25) + 
+            labs(x = "Temporada", y = "Cantidad tarjetas amarillas",
+                 title = "Total de tarjetas amarillas") +
+            theme_bw() +
+            theme(plot.title = element_text(hjust = 0.5), legend.position = "right")
+plot_grid(grafico_prom_faltas, grafico_tarjetas)
 
-
+ggsave(here::here("figuras", "prom-faltas-y-amarillas.png"))
 
 # Info extra 19-20
 # Primavera y Verano  21/03 hasta 23/09
