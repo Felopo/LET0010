@@ -99,7 +99,7 @@ Ahora veremos el desempeño que tuvo el equipo contra los que son considerados l
 Se juega dos partidos contra cada equipo, por lo que en total son diez partidos.  
 
 ```{r, echo = FALSE}
-knitr::include_graphics("../figuras/goles-a-big-six.png")
+knitr::include_graphics("../figuras/ganados-a-big-six.png")
 ```
 
 Como podemos notar en el gráfico las temporadas en que el equipo tuvo más victorias contra los big six fueron las temporadas en que salió campeón.  
