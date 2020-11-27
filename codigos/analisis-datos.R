@@ -3,6 +3,7 @@ library(lubridate)
 library(readr)
 library(ggplot2)
 library(ggthemes)
+library(cowplot)
 
 pl_19_20 = rio::import("datos-procesados/pl_19-20.csv")
 
@@ -37,6 +38,12 @@ d_19_20 = nrow(pjl_19_20[which(pjl_19_20$FTR == "A"),]) + nrow(pjv_19_20[which(p
 e_19_20 = nrow(pjl_19_20[which(pjl_19_20$FTR == "D"),]) + nrow(pjv_19_20[which(pjv_19_20$FTR == "D"),])
 # Cantidad puntos
 puntos_19_20 = (v_19_20 * 3) + (e_19_20 * 1)
+# Promedio faltas por partido
+prom_faltas_19_20 = (sum(pjl_19_20$HF) + sum(pjv_19_20$AF))  / 38
+# Cantidad tarjetas amarillas
+am_19_20 = sum(pjl_19_20$HY) + sum(pjv_19_20$AY)
+# Cantidad tarjetas rojas
+roj_19_20 = sum(pjl_19_20$HR) + sum(pjv_19_20$AR)
 # Contra los big-six
 victorias_19_20 = 0
 if (pjl_19_20[which(pjl_19_20$AwayTeam == "Man United"),]$FTR == "H") {
@@ -92,6 +99,12 @@ d_18_19 = nrow(pjl_18_19[which(pjl_18_19$FTR == "A"),]) + nrow(pjv_18_19[which(p
 e_18_19 = nrow(pjl_18_19[which(pjl_18_19$FTR == "D"),]) + nrow(pjv_18_19[which(pjv_18_19$FTR == "D"),])
 # Cantidad puntos
 puntos_18_19 = (v_18_19 * 3) + (e_18_19 * 1)
+# Promedio faltas por partido
+prom_faltas_18_19 = (sum(pjl_18_19$HF) + sum(pjv_18_19$AF))  / 38
+# Cantidad tarjetas amarillas
+am_18_19 = sum(pjl_18_19$HY) + sum(pjv_18_19$AY)
+# Cantidad tarjetas rojas
+roj_18_19 = sum(pjl_18_19$HR) + sum(pjv_18_19$AR)
 # Contra los big-six
 victorias_18_19 = 0
 if (pjl_18_19[which(pjl_18_19$AwayTeam == "Man United"),]$FTR == "H") {
@@ -146,6 +159,12 @@ d_17_18 = nrow(pjl_17_18[which(pjl_17_18$FTR == "A"),]) + nrow(pjv_17_18[which(p
 e_17_18 = nrow(pjl_17_18[which(pjl_17_18$FTR == "D"),]) + nrow(pjv_17_18[which(pjv_17_18$FTR == "D"),])
 # Cantidad puntos
 puntos_17_18 = (v_17_18 * 3) + (e_17_18 * 1)
+# Promedio faltas por partido
+prom_faltas_17_18 = (sum(pjl_17_18$HF) + sum(pjv_17_18$AF))  / 38
+# Cantidad tarjetas amarillas
+am_17_18 = sum(pjl_17_18$HY) + sum(pjv_17_18$AY)
+# Cantidad tarjetas rojas
+roj_17_18 = sum(pjl_17_18$HR) + sum(pjv_17_18$AR)
 # Contra los big-six
 victorias_17_18 = 0
 if (pjl_17_18[which(pjl_17_18$AwayTeam == "Man United"),]$FTR == "H") {
@@ -200,6 +219,12 @@ d_16_17 = nrow(pjl_16_17[which(pjl_16_17$FTR == "A"),]) + nrow(pjv_16_17[which(p
 e_16_17 = nrow(pjl_16_17[which(pjl_16_17$FTR == "D"),]) + nrow(pjv_16_17[which(pjv_16_17$FTR == "D"),])
 # Cantidad puntos
 puntos_16_17 = (v_16_17 * 3) + (e_16_17 * 1)
+# Promedio faltas por partido
+prom_faltas_16_17 = (sum(pjl_16_17$HF) + sum(pjv_16_17$AF))  / 38
+# Cantidad tarjetas amarillas
+am_16_17 = sum(pjl_16_17$HY) + sum(pjv_16_17$AY)
+# Cantidad tarjetas rojas
+roj_16_17 = sum(pjl_16_17$HR) + sum(pjv_16_17$AR)
 # Contra los big-six
 victorias_16_17 = 0
 if (pjl_16_17[which(pjl_16_17$AwayTeam == "Man United"),]$FTR == "H") {
@@ -254,6 +279,12 @@ d_15_16 = nrow(pjl_15_16[which(pjl_15_16$FTR == "A"),]) + nrow(pjv_15_16[which(p
 e_15_16 = nrow(pjl_15_16[which(pjl_15_16$FTR == "D"),]) + nrow(pjv_15_16[which(pjv_15_16$FTR == "D"),])
 # Cantidad puntos
 puntos_15_16 = (v_15_16 * 3) + (e_15_16 * 1)
+# Promedio faltas por partido
+prom_faltas_15_16 = (sum(pjl_15_16$HF) + sum(pjv_15_16$AF))  / 38
+# Cantidad tarjetas amarillas
+am_15_16 = sum(pjl_15_16$HY) + sum(pjv_15_16$AY)
+# Cantidad tarjetas rojas
+roj_15_16 = sum(pjl_15_16$HR) + sum(pjv_15_16$AR)
 # Contra los big-six
 victorias_15_16 = 0
 if (pjl_15_16[which(pjl_15_16$AwayTeam == "Man United"),]$FTR == "H") {
@@ -308,6 +339,12 @@ d_14_15 = nrow(pjl_14_15[which(pjl_14_15$FTR == "A"),]) + nrow(pjv_14_15[which(p
 e_14_15 = nrow(pjl_14_15[which(pjl_14_15$FTR == "D"),]) + nrow(pjv_14_15[which(pjv_14_15$FTR == "D"),])
 # Cantidad puntos
 puntos_14_15 = (v_14_15 * 3) + (e_14_15 * 1)
+# Promedio faltas por partido
+prom_faltas_14_15 = (sum(pjl_14_15$HF) + sum(pjv_14_15$AF))  / 38
+# Cantidad tarjetas amarillas
+am_14_15 = sum(pjl_14_15$HY) + sum(pjv_14_15$AY)
+# Cantidad tarjetas rojas
+roj_14_15 = sum(pjl_14_15$HR) + sum(pjv_14_15$AR)
 # Contra los big-six
 victorias_14_15 = 0
 if (pjl_14_15[which(pjl_14_15$AwayTeam == "Man United"),]$FTR == "H") {
@@ -342,42 +379,82 @@ if (pjv_14_15[which(pjv_14_15$HomeTeam == "Tottenham"),]$FTR == "A") {
 }
 
 
+# INFORME
+
 # Promedio de goles por temporada
 datos_prom_goles = data.frame(temporadas = c("14-15", "15-16", "16-17", "17-18", "18-19", "19-20"), 
                     promedios = c(p_14_15 = prom_goles_city_14_15, p_15_16 = prom_goles_city_15_16, 
                                   p_16_17 = prom_goles_city_16_17, p_17_18 = prom_goles_city_17_18, 
                                   p_18_19 = prom_goles_city_18_19, p_19_20 = prom_goles_city_19_20))
 
-#Gráfico de promedio de goles por temporada
+# Gráfico de promedio de goles por temporada
 ggplot2::ggplot(data = datos_prom_goles, mapping = aes(x = temporadas, y = promedios)) +
   labs(x = "Temporada", y = "Promedio de goles",
        title = "Promedio de goles del Manchester City por temporada") +
   theme_bw() +
   theme(plot.title = element_text(hjust = 0.5), legend.position = "right") + 
   scale_color_colorblind() + 
-  geom_point(size = 5, mapping = aes(color = temporadas))
+  geom_point(size = 5, mapping = aes(color = temporadas)) + 
+  geom_line(aes(group = 1))
 
 ggsave(here::here("figuras", "promedio-goles-city.png"))
 
 # Promedio de goles recibidos por temporada
+temporadas = c("14-15", "15-16", "16-17", "17-18", "18-19", "19-20")
 datos_prom_rec = data.frame(temporadas = c("14-15", "15-16", "16-17", "17-18", "18-19", "19-20"), 
                     promedios = c(p_14_15 = prom_rec_city_14_15, p_15_16 = prom_rec_city_15_16, 
                                   p_16_17 = prom_rec_city_16_17, p_17_18 = prom_rec_city_17_18, 
                                   p_18_19 = prom_rec_city_18_19, p_19_20 = prom_rec_city_19_20))
 
-#Gráfico de promedio de goles recibidos  por temporada
+# Gráfico de promedio de goles recibidos  por temporada
 ggplot2::ggplot(data = datos_prom_rec, mapping = aes(x = temporadas, y = promedios)) +
   labs(x = "Temporada", y = "Promedio de goles recibidos",
        title = "Promedio de goles recibidos del Manchester City por temporada") +
   theme_bw() +
   theme(plot.title = element_text(hjust = 0.5), legend.position = "right") + 
   scale_color_colorblind() + 
-  geom_point(size = 5, mapping = aes(color = temporadas))
+  geom_point(size = 5, mapping = aes(color = temporadas)) + 
+  geom_line(aes(group = 1))
   
 ggsave(here::here("figuras", "promedio-recibidos-city.png"))
 
+# Diferencia de goles por temporada
 
+dif_goles_14_15 = sum(pjl_14_15$FTHG) + sum(pjv_14_15$FTAG) - sum(pjl_14_15$FTAG) - sum(pjv_14_15$FTHG)
+dif_goles_15_16 = sum(pjl_15_16$FTHG) + sum(pjv_15_16$FTAG) - sum(pjl_15_16$FTAG) - sum(pjv_15_16$FTHG)
+dif_goles_16_17 = sum(pjl_16_17$FTHG) + sum(pjv_16_17$FTAG) - sum(pjl_16_17$FTAG) - sum(pjv_16_17$FTHG)
+dif_goles_17_18 = sum(pjl_17_18$FTHG) + sum(pjv_17_18$FTAG) - sum(pjl_17_18$FTAG) - sum(pjv_17_18$FTHG)
+dif_goles_18_19 = sum(pjl_18_19$FTHG) + sum(pjv_18_19$FTAG) - sum(pjl_18_19$FTAG) - sum(pjv_18_19$FTHG)
+dif_goles_19_20 = sum(pjl_19_20$FTHG) + sum(pjv_19_20$FTAG) - sum(pjl_19_20$FTAG) - sum(pjv_19_20$FTHG)
 
+# Contra los big six
+
+datos_vic = data.frame(temporadas = temporadas, 
+                       victorias = c(victorias_14_15, victorias_15_16, victorias_16_17, 
+                                     victorias_17_18, victorias_18_19, victorias_19_20))
+
+# Gráfico de cantidad de victorias contra los big six
+ggplot2::ggplot(data = datos_vic) + 
+  geom_bar(aes(x = temporadas, y = victorias), stat = "identity", fill = temporadas) +
+  labs(x = "Temporada", y = "Cantidad goles a los Big Six",
+       title = "Goles a los Big Six por temporada") +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "right")
+
+ggsave(here::here("figuras", "goles-a-big-six.png"))
+
+# Faltas y tarjetas por partido
+datos_faltas = data.frame(temporadas,
+                          prom_faltas = c(prom_faltas_14_15, prom_faltas_15_16, prom_faltas_16_17,
+                                          prom_faltas_17_18, prom_faltas_18_19, prom_faltas_19_20))
+grafico_prom_faltas = 
+  ggplot2::ggplot(data = datos_faltas) + 
+            geom_bar(aes(x = temporadas, y  = prom_faltas), stat = "identity", fill = temporadas) + 
+            labs(x = "Temporada", y = "Promedio de faltas por partido",
+                 title = "Promedio de faltas cada temporada") +
+            theme_bw() +
+            theme(plot.title = element_text(hjust = 0.5), legend.position = "right")
+# datos_tarjetas = data.frame(temporadas, )
 
 
 
