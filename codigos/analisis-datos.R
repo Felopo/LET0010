@@ -436,12 +436,12 @@ datos_vic = data.frame(temporadas = temporadas,
 # Gráfico de cantidad de victorias contra los big six
 ggplot2::ggplot(data = datos_vic) + 
   geom_bar(aes(x = temporadas, y = victorias), stat = "identity", fill = temporadas) +
-  labs(x = "Temporada", y = "Cantidad goles a los Big Six",
-       title = "Goles a los Big Six por temporada") +
+  labs(x = "Temporada", y = "Cantidad partidos ganados a los Big Six",
+       title = "Partidos ganados a los Big Six por temporada") +
   theme_bw() +
   theme(plot.title = element_text(hjust = 0.5), legend.position = "right")
 
-ggsave(here::here("figuras", "goles-a-big-six.png"))
+ggsave(here::here("figuras", "ganados-a-big-six.png"))
 
 # Faltas y tarjetas por partido
 datos_faltas = data.frame(temporadas,
@@ -451,7 +451,7 @@ grafico_prom_faltas =
   ggplot2::ggplot(data = datos_faltas) + 
             geom_bar(aes(x = temporadas, y  = prom_faltas), stat = "identity", fill = temporadas) +
             labs(x = "Temporada", y = "Promedio de faltas por partido",
-                 title = "Promedio de faltas cada temporada") +
+                 title = "Promedio de faltas por temporada") +
             theme_bw() +
             theme(plot.title = element_text(hjust = 0.5), legend.position = "right")
 datos_tarjetas = data.frame(temporadas, 
