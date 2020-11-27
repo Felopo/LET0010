@@ -1,7 +1,7 @@
 ---
-title: "Introducción"
+title: "Informe Desempeño Manchester City 2014-2019"
 author: "Felipe Ignacio Moya González"
-date: "09-11-2020"
+date: "27-11-2020"
 output:
   prettydoc::html_pretty:
     theme: hpstr
@@ -12,25 +12,19 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<h2> 1. Contexto </h2>
+<h2> Introducción </h2>
 
 <p> Actualmente la premier league de inglaterra es de las ligas de fútbol más competitivas del mundo (https://bleacherreport.com/articles/1458287-ranking-the-top-20-world-football-leagues-statistically) , pues desde hace varios años que los equipos que salen campeones varian cada temporada, y siempre hay algún equipo que da la sorpresa. El Manchester City, equipo que juega en la premier league actualmente, ha destacado los últimos años, ganando varios títulos y mostrando una gran mejoría con respecto a años anteriores, donde no solía destacar. A lo largo de este informe, se analizará el desempeño del equipo Manchester City entre las temporadas 2014-2015 y 2019-2020, para luego ver si hay algo que el equipo deba hacer mejor a futuro para aspirar a salir campeón. </p>
 
-<hr>
-
-<h2> 2. Problema / relevancia / necesidad </h2>
+<br>
 
 <p> En este análisis se tratará de encontrar las debilidades del equipo para poder cubrirlas y luego poder mejorarlas a futuro. Esas debilidades pueden influir mucho al desempeño del equipo, por lo que entenderlas y mejorarlas es muy importante para que el Manchester City pueda llegar a ser campeón a futuro.</p>
 
-<hr>
-
-<h2> 3. Foco </h2>
+<br>
 
 <p> Es por esto que en este informe se revisarán los factores que más influyeron en el desempeño del equipo, y se enfocará en determinar a grandes rasgos las falencias que el equipo ha tenido en estos últimos años, para poder mejorarlas. </p>
 
-<hr>
-
-<h2> 4. Carta de navegación </h2>
+<br>
 
 <p> El informe se desarrollará en cuatro secciones: primero se hará una pequeña introducción para que el lector entre en contexto con el tema y con alguna información que no se analizó pues no se encuentra en la base de datos, después se analizarán los goles marcados y recibidos por el equipo en cada temporada a través de gráficos, luego se hará una comparación de los resultados obtenidos por el equipo contra los __big six__ ([Qué son los big six?](https://www.bettingsites.co/sports/football/premier-league/big-six/#)) en cada temporada, y ver si esto influyó en que el equipo haya salido campeón, por último se sacarán conclusiones de estos resultados, para ver cuales son las debilidades que debe cubrir el equipo. 
 Cabe recalcar que en este análisis no se usa toda la información que influye en los resultados de cada partido pues esta información va más allá de lo que se puede analizar en esta base de datos. Por lo que si se quisiera obtener conclusiones más precisas se podría hacer un análisis que abarque más años y que además use otras variables que no están en esta base de datos, como por ejemplo los jugadores que tiene el equipo, las lesiones, etc. </p>
@@ -111,11 +105,22 @@ knitr::include_graphics("../figuras/goles-a-big-six.png")
 Como podemos notar en el gráfico las temporadas en que el equipo tuvo más victorias contra los big six fueron las temporadas en que salió campeón.  
 En estas temporadas tuvo más que el doble de victorias contra estos equipos, por lo que es bastante lógico pensar que ganarle a estos equipos es un factor importante para que ganar la liga.  
 
+<h3> Promedio Faltas y Cantidad amarillas </h3>
 
+Por último veremos el promedio de faltas que cometió el equipo por partido, y la cantidad total de amarillas recibidas por el equipo cada temporada.  
+Contrastamos estos dos resultados juntos pues están directamente relacionados, lo que se puede notar en los siguientes gráficos
 
+```{r, echo = FALSE}
+knitr::include_graphics("../figuras/prom-faltas-y-amarillas.png")
+```
 
+Como podemos ver en los gráficos, las temporadas en las que menos faltas cometió el equipo y en las que menos tarjetas amarillas recibió, fueron en las que ganó la liga, por lo que vemos la importancia de tratar de cometer la menor cantidad de infracciones y tratar de evitar las tarjetas, pues hacer lo anterior influye notablemente en el resultado de un partido.
 
+<hr>
 
+<h2> Conclusión </h2>
+
+Con los resultados vistos anteriormente podemos concluir que ...... _agregar conclusión_
 
 
 
