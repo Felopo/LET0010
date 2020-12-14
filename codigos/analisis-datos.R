@@ -389,8 +389,9 @@ datos_prom_goles = data.frame(temporadas = c("14-15", "15-16", "16-17", "17-18",
 
 # Gráfico de promedio de goles por temporada
 ggplot2::ggplot(data = datos_prom_goles, mapping = aes(x = temporadas, y = promedios)) +
-  labs(x = "Temporada", y = "Promedio de goles",
-       title = "Promedio de goles del Manchester City por temporada") +
+  labs(x = "Temporada", y = "Promedio de goles por partido",
+       title = "Promedio de goles del Manchester City por temporada", 
+       caption = "Figura 1.") +
   theme_bw() +
   theme(plot.title = element_text(hjust = 0.5), legend.position = "right") + 
   scale_color_colorblind() + 
@@ -408,8 +409,9 @@ datos_prom_rec = data.frame(temporadas = c("14-15", "15-16", "16-17", "17-18", "
 
 # Gráfico de promedio de goles recibidos  por temporada
 ggplot2::ggplot(data = datos_prom_rec, mapping = aes(x = temporadas, y = promedios)) +
-  labs(x = "Temporada", y = "Promedio de goles recibidos",
-       title = "Promedio de goles recibidos del Manchester City por temporada") +
+  labs(x = "Temporada", y = "Promedio de goles recibidos por partido",
+       title = "Promedio de goles recibidos por el Manchester City por temporada", 
+       caption = "Figura 2.") +
   theme_bw() +
   theme(plot.title = element_text(hjust = 0.5), legend.position = "right") + 
   scale_color_colorblind() + 
@@ -437,7 +439,7 @@ datos_vic = data.frame(temporadas = temporadas,
 ggplot2::ggplot(data = datos_vic) + 
   geom_bar(aes(x = temporadas, y = victorias), stat = "identity", fill = temporadas) +
   labs(x = "Temporada", y = "Cantidad partidos ganados a los Big Six",
-       title = "Partidos ganados a los Big Six por temporada") +
+       title = "Partidos ganados a los Big Six por temporada", caption = "Figura 3.") +
   theme_bw() +
   theme(plot.title = element_text(hjust = 0.5), legend.position = "right")
 
@@ -451,7 +453,7 @@ grafico_prom_faltas =
   ggplot2::ggplot(data = datos_faltas) + 
             geom_bar(aes(x = temporadas, y  = prom_faltas), stat = "identity", fill = temporadas) +
             labs(x = "Temporada", y = "Promedio de faltas por partido",
-                 title = "Promedio de faltas por temporada") +
+                 title = "Promedio de faltas por temporada", caption = "Figura 4.") +
             theme_bw() +
             theme(plot.title = element_text(hjust = 0.5), legend.position = "right")
 datos_tarjetas = data.frame(temporadas, 
@@ -464,8 +466,8 @@ grafico_tarjetas =
             geom_bar(stat = "identity", fill = temporadas, aes(x = temporadas, y = amarillas)) + 
             geom_text(aes(x = temporadas, y = amarillas, label=amarillas), 
                       position=position_dodge(width=0.9), vjust=-0.25) + 
-            labs(x = "Temporada", y = "Cantidad tarjetas amarillas",
-                 title = "Total de tarjetas amarillas") +
+            labs(x = "Temporada", y = "Cantidad tarjetas amarillas por temporada",
+                 title = "Total de tarjetas amarillas", caption = "Figura 5.") +
             theme_bw() +
             theme(plot.title = element_text(hjust = 0.5), legend.position = "right")
 plot_grid(grafico_prom_faltas, grafico_tarjetas)
